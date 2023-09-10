@@ -1,0 +1,10 @@
+.hello{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    align-items: center;
+    color: coral;
+    font-size: 30px;
+}

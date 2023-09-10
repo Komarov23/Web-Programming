@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+    color: white; 
+    background-color: coral; 
+    text-align: center;
+    align-items: center;
+  }
+  
