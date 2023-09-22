@@ -1,0 +1,16 @@
+.menu ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  column-gap: 1rem;
+}
+
+.menu li a,
+.menu li a:link,
+.menu li a:focus,
+.menu li a:focus-within,
+.menu li a:visited,
+.menu li a:active {
+  text-decoration: none;
+  color: white;
+}

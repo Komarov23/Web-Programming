@@ -1,0 +1,8 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  border: 1px solid lightgrey;
+  border-radius: .5rem;
+  padding: 1.5rem;
+}
