@@ -1,0 +1,44 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.comment {
+  padding: .5rem 1rem;
+  border: 1px solid lightgrey;
+  border-radius: .5rem;
+  width: 100%;
+}
+.comment__comment {
+  font-size: 1rem;
+}
+.comment__user {
+  font-size: .75rem;
+  color: gray;
+}
+.button {
+  padding: .5rem 1rem;
+  background-color: coral;
+  border-radius: .5rem;
+  color: white;
+  border: none;
+}
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  border-radius: .5rem;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from "./menu.module.css"; 
+import styles from "./menu.module.css";
+import {Link} from "react-router-dom";
 
 class Menu extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class Menu extends React.Component {
       <div className={styles.menu}>
         <ul>
           <li>
-            <a href="">Пункт 1</a>
+            <Link to={'/'}>Пункт 1</Link>
           </li>
           <li>
             <a href="">Пункт 2</a>
