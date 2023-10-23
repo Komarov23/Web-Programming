@@ -3,18 +3,16 @@ import Header from "../components/Layout/Header/Header";
 import Footer from "../components/Layout/Footer/Footer";
 import styles from "./layout.module.css";
 
-class Layout extends React.Component {
-  render() {
-    return (
+const Layout = ({ children }) => {
+  return (
       <div className={styles.layout}>
         <Header/>
         <main className={styles.content}>
-          {this.props.children}
+          {children}
         </main>
         <Footer/>
       </div>
-    )
-  }
+  )
 }
 
 export default Layout

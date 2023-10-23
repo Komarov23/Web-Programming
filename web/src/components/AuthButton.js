@@ -1,25 +1,16 @@
 import React from "react";
+import useAuth from "../hooks/useAuth";
 
+const AuthButton = () => {
+  const { authenticated, login, logout } = useAuth();
+  const onClick = () => {
+    if (authenticated) return logout();
+    login();
+  };
 
-class AuthButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAuth: false
-    }
-
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick () {
-    this.setState((state) => ({ isAuth: !state.isAuth }));
-  }
-
-  render() {
-    return <button onClick={this.onClick}>
-      {this.state.isAuth ? "Вийти" : "Зайти"}
-    </button>
-  }
+  return <button onClick={onClick}>
+    {authenticated ? "Вийти" : "Зайти"}
+  </button>
 }
 
 export default AuthButton
