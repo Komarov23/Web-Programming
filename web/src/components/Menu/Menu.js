@@ -8,7 +8,7 @@ class Menu extends React.Component {
       <div className={styles.menu}>
         <ul>
           <li>
-            <Link to={'/'}>Пункт 1</Link>
+            <Link to={'/'}>Home</Link>
           </li>
           <li>
             <a href="">Пункт 2</a>

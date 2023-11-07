@@ -16,7 +16,7 @@ const Product = () => {
         <h1>Інформація про {product.name}</h1>
         <p>{usdPrice + ' - ' + uahPrice}</p>
         <p>{product.description}</p>
-        <Form />
+        <Form productId={productId} />
       </Layout>
   );
 }

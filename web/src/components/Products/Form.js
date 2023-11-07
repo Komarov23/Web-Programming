@@ -1,7 +1,8 @@
 import {useRef, useState} from "react";
 import styles from "./form.module.css"
+import { Link } from "react-router-dom";
 
-const Form = () => {
+const Form = ({ productId }) => {
   const [comments, setComments] = useState([]);
   const textarea = useRef(null);
 
@@ -14,6 +15,7 @@ const Form = () => {
 
   return (
       <div className={styles.layout}>
+        <Link to={`/order/${productId}`} className={styles.button}>Замовити</Link>
         <h3>Комментарі</h3>
         <div className={styles.comments}>
           {comments.map(c =>
