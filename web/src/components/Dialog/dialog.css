@@ -1,0 +1,33 @@
+.dialog__wrapper {
+  border-radius: .5rem;
+  box-shadow: 9px 8px 25px -3px rgba(0,0,0,0.1);
+}
+
+.dialog__content {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem 1rem;
+}
+
+.dialog-enter {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.dialog-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.dialog-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.dialog-exit-active {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 300ms, transform 300ms;
+}
+  

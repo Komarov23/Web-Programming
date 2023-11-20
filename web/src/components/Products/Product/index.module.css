@@ -5,12 +5,20 @@
   border: 1px solid lightgrey;
   border-radius: .5rem;
   padding: 1.5rem;
+  position: relative;
 }
+
 .product__footer {
   display: flex;
   justify-content: space-between;
 }
+
 .product__button {
   border: none;
   background: transparent;
+}
+
+.product__dialog {
+  position: absolute;
+  inset: 1rem 1rem auto auto;
 }

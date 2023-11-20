@@ -1,31 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import {Link} from "react-router-dom";
 import {formatCurrencyUSD} from "../../../helpers";
+import ProductDialog from "../../ProductDialog";
 
-class Product extends React.Component {
-  constructor(props) {
-    super(props);
+const Product = ({ product, onChange }) => {
+  const [showDialog, setShowDialog] = useState(false);
+
+  const chooseProduct = () => {
+    onChange();
+    setShowDialog(true);
+    setInterval(() => setShowDialog(false), 1500);
   }
-  render() {
-    return <div className={styles.product}>
-      <h3>{this.props.product.name}</h3>
-      <p>{this.props.product.description}</p>
-      <p>{formatCurrencyUSD(this.props.product.price)}</p>
+
+  return <div className={styles.product}>
+      <h3>{product.name}</h3>
+      <p>{product.description}</p>
+      <p>{formatCurrencyUSD(product.price)}</p>
       <div className={styles.product__footer}>
         <label>
           <input
               type={"checkbox"}
               defaultChecked={false}
-              checked={this.props.product.checked}
-              onChange={this.props.onChange}
+              checked={product.checked}
+              onChange={chooseProduct}
           />
           Обрати
         </label>
-        <Link to={`/product/${this.props.product.id}`}>Переглянути товар</Link>
+        <Link to={`/product/${product.id}`}>Переглянути товар</Link>
+      </div>
+      <div className={styles.product__dialog}>
+        <ProductDialog isOpened={showDialog} isAdded={product.checked} />
       </div>
     </div>
-  }
 }
 
 export default Product

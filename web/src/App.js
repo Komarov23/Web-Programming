@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Products from "./components/Products";
 import Counter from "./components/Products/Counter";
+import Dialog from './components/Dialog';
 
 const products = [
   {
@@ -66,6 +67,7 @@ class App extends React.Component {
         <Header/>
         <Counter products={this.state.products} />
         <Products products={this.state.products} onChange={this.onChange} />
+        <Dialog />
         <Footer/>
       </div>
     );
