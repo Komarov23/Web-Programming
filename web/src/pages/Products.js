@@ -1,50 +1,32 @@
 import React from "react";
-import products from "../constants/products";
 import Counter from "../components/Products/Counter";
 import Product from "../components/Products/Product";
 import styles from "./products.module.css"
 import Layout from "../layout";
+import {useDispatch, useSelector} from "react-redux";
+import {selectProducts} from "../features/products/products.selector";
+import {toggleProduct} from "../features/products/products.slice";
 
-class Products extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: products
-    }
+const Products = () => {
+  const products = useSelector(selectProducts);
+  const dispatch = useDispatch()
 
-    this.onChange = this.onChange.bind(this);
-  }
+  const toggle = (product) => dispatch(toggleProduct(product))
 
-  onChange (product) {
-    this.setState((state) => {
-      return {
-        products: state.products.map(p => {
-          if (p.id !== product.id) return p;
-          return {
-            ...p,
-            checked: !p.checked
-          }
-        })
-      }
-    })
-  }
-
-  render() {
-    return (
+  return (
       <Layout>
-        <Counter products={this.state.products} />
+        <Counter />
         <div className={styles.products}>
-          {this.state.products.map(product =>
+          {products.map(product =>
               <Product
                   key={product.id}
                   product={product}
-                  onChange={() => this.onChange(product)}
+                  onChange={() => toggle(product)}
               />
           )}
         </div>
       </Layout>
-    );
-  }
+  );
 }
 
 export default Products;

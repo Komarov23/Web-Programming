@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { Modal, Button, Input, Space } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Modal, Button, Space } from 'antd';
+import { Formik, Form } from "formik";
+import Input from "../components/Input"
 
 const AuthButton = () => {
   const { authenticated, login, logout } = useAuth();
@@ -15,11 +16,9 @@ const AuthButton = () => {
 
   const handleLogin = () => {
     setLoading(true);
-    setTimeout(() => {
       login();
       setLoading(false);
       setVisible(false);
-    }, 2000);
   };
 
   const handleCancel = () => {
@@ -39,27 +38,26 @@ const AuthButton = () => {
         title="Форма авторизації"
         visible={visible}
         onCancel={handleCancel}
-        footer={[
-          <Button key="back" onClick={handleCancel}>
-            Відміна
-          </Button>,
-          <Button key="login" type="primary" onClick={handleLogin} loading={loading}>
-            Увійти
-          </Button>,
-        ]}
       >
-        <form onSubmit={handleLogin}>
-          <Space direction="vertical">
-            <Input type="email" required placeholder="Input email" />
-            <Input.Password
-              placeholder="Input password"
-              required
-              iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-            />
-          </Space>
-        </form>
+        <Formik
+            initialValues={{
+                email: "",
+                password: ""
+            }}
+            onSubmit={handleLogin}
+        >
+            {() => (
+                <Form>
+                    <Space direction="vertical">
+                        <Input name="email" type="email" />
+                        <Input name="password" type="password" />
+                        <button type="submit">Login</button>
+                    </Space>
+                </Form>
+            )}
+        </Formik>
       </Modal>
-  </div> 
+  </div>
 }
 
 export default AuthButton

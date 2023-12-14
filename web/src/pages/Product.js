@@ -4,10 +4,12 @@ import Layout from "../layout";
 import {useParams} from "react-router-dom";
 import Form from "../components/Products/Form";
 import {convertToUAH, formatCurrencyUAH, formatCurrencyUSD} from "../helpers";
+import {useSelector} from "react-redux";
+import {selectProduct} from "../features/products/products.selector";
 
 const Product = () => {
   const { productId } = useParams()
-  const product = products.find(p => p.id === parseInt(productId));
+  const product = useSelector(selectProduct(parseInt(productId)));
   const usdPrice = formatCurrencyUSD(product.price);
   const uahPrice = formatCurrencyUAH(convertToUAH(product.price));
 
